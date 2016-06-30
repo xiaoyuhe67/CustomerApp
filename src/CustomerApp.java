@@ -11,16 +11,22 @@ public class CustomerApp {
 	
 	private static Scanner sc=new Scanner(System.in);
 	
-	public static void main(String[] args)
+	public static void main(String[] args) throws SQLException
 	{
 		String input="";
 		while(true)
 		{
-			System.out.println("Please input lastname:");
+			System.out.println("Please input lastname for search or totals for report:");
 			input=sc.next();
-			
+				
 			CustomerDatabase cd=new CustomerDatabase();
 			
+			if(input.equals("totals"))
+			{
+				System.out.println(cd.totalReport());
+			}
+			else
+			{	
 			List<Customer> customers = new ArrayList<Customer>();
 			
 			customers=cd.searchdatabase(input);
@@ -124,7 +130,7 @@ public class CustomerApp {
 			}
 			
 			
-			
+			}	
 		}
 	}
 	
